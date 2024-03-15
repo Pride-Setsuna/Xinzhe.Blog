@@ -1,12 +1,12 @@
 const BLOG = {
-  title: 'Xinzhe',
+  title: '信哲',
   author: '信哲',
   email: 'gao-yiqian@outlook.com',
   link: 'https://www.shintetu.com',
   newsletter: 'Weekly',
   description: 'Dream it. Chase it. Code it.',
   lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
-  timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
+  timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
   lightBackground: '#F6F8FA', // use hex value, don't forget '#' e.g #fffefc
@@ -20,10 +20,10 @@ const BLOG = {
     notes: false,
     projects: false,
     contact: false,
-    books: true,
+    books: false,
     friends: false,
     music: false,
-    record: true,
+    record: false,
   },
   showWeChatPay: false,
   previewImagesEnabled: true,
