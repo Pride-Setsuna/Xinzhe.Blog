@@ -16,7 +16,7 @@ export const Contact = () => {
         <p className='max-w-screen-md font-light md:text-lg text-center mx-auto'>
           {t.CONTACT.DESCRIPTION}
         </p>
-        <p className='max-w-screen-md font-light md:text-lg text-center mx-auto'>
+        {/* <p className='max-w-screen-md font-light md:text-lg text-center mx-auto'>
           {t.CONTACT.TG_DESCRIPTION}
           <a
             href={BLOG.socialLink.telegram}
@@ -24,7 +24,7 @@ export const Contact = () => {
           >
             @{BLOG.socialLink.telegram.slice(13)}
           </a>
-        </p>
+        </p> */}
       </div>
       <ContactForm />
     </Container>

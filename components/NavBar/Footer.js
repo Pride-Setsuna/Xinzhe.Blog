@@ -6,8 +6,11 @@ import {
   UserIcon,
   UsersIcon,
   BookOpenIcon,
-  MailIcon
+  MailIcon,
+  PlayIcon,
+  MicrophoneIcon
 } from '@heroicons/react/outline'
+
 import Social from '../Common/Social.js'
 import { motion } from 'framer-motion'
 
@@ -51,20 +54,34 @@ const Footer = ({ fullWidth }) => {
     },
     {
       id: 3,
+      name: t.NAV.MUSIC,
+      to: '/music',
+      icon: <PlayIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.music
+    },
+    {
+      id: 4,
+      name: t.NAV.RECORD,
+      to: '/record',
+      icon: <MicrophoneIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.record
+    },
+    {
+      id: 5,
       name: t.NAV.CONTACT,
       to: '/contact',
       icon: <MailIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.contact
-    }
+    },
   ]
 
   return (
     <motion.div
       className={`mt-6 flex-shrink-0 m-auto w-full text-gray-600 dark:text-gray-300 transition-all ${
-        !fullWidth ? 'max-w-3xl md:px-8' : 'px-4 md:px-24'
+        !fullWidth ? 'max-w-4xl md:px-4' : 'px-4 md:px-24'
       }`}
     >
-      <footer className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
+      <footer className='max-w-screen-2xl px-4 md:px-4 mx-auto'>
         <div className='flex flex-col md:flex-row justify-between items-center border-b dark:border-gray-600 py-1'>
           <ul className='flex flex-wrap justify-center md:justify-start md:gap-1'>
             {links.map(
