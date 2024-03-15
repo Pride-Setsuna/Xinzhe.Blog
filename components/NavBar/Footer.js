@@ -109,7 +109,7 @@ const Footer = ({ fullWidth }) => {
           </div>
         </div>
 
-        
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className='text-gray-400 text-xs font-light py-4'>
           © {from === y || !from ? y : `${from} - ${y}`} | {BLOG.author}
           {/*
@@ -122,7 +122,7 @@ const Footer = ({ fullWidth }) => {
           </p>
           */}
         </div>
-       
+      </div>
         
       </footer>
     </motion.div>
