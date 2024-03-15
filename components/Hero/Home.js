@@ -1,7 +1,6 @@
 import BLOG from '@/blog.config'
 import Link from 'next/link'
-import Avatar from './Avatar.js'
-// import Avatar from './NotionAvatar.js'
+import Avatar from './NotionAvatar.js'
 import Social from '../Common/Social.js'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
@@ -28,7 +27,7 @@ const Hero = ({ blockMap }) => {
 
   return (
     <>
-      <div className='container mx-auto flex px-2 py-2 mb-10 md:flex-row flex-col items-center'>
+      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-center'>
         <div className='flex flex-col md:w-3/5 md:items-start mb-6 md:mb-0 text-left'>
           <NotionRenderer
             className='md:ml-0'
@@ -36,11 +35,8 @@ const Hero = ({ blockMap }) => {
             frontMatter={{}}
             subPageTitle={null}
           />
-          {/* 
-            注释社交图标
-            <Social />  
-          */}
-          <div className='flex flex-col sm:flex-row sm:justify-center gap-4 mt-0'>
+          <Social />
+          <div className='flex flex-col sm:flex-row sm:justify-center gap-4 mt-6'>
             <Link passHref href='/contact' scroll={false}>
               <button className='w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'>
                 <MailIcon className='inline-block text-gray-600 dark:text-day h-7 w-7 mt-1' />
