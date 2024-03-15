@@ -1,6 +1,6 @@
 const BLOG = {
   title: 'Xinzhe',
-  author: 'Xinzhe',
+  author: '信哲',
   email: 'gao-yiqian@outlook.com',
   link: 'https://www.shintetu.com',
   newsletter: 'Weekly',
@@ -12,7 +12,7 @@ const BLOG = {
   lightBackground: '#F6F8FA', // use hex value, don't forget '#' e.g #fffefc
   darkBackground: '#212936', // use hex value, don't forget '#'
   path: '', // leave this empty unless you want to deploy Notionic in a folder
-  since: 2021, // If leave this empty, current year will be used.
+  since: 2022, // If leave this empty, current year will be used.
   postsPerPage: 10,
   sortByDate: true,
   pagesShow: {
@@ -22,7 +22,7 @@ const BLOG = {
     contact: false,
     books: true,
     friends: true,
-    music: true,
+    music: false,
     record: true,
   },
   showWeChatPay: false,
