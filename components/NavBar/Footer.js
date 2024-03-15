@@ -109,6 +109,7 @@ const Footer = ({ fullWidth }) => {
           </div>
         </div>
 
+        {/*
         <div className='text-gray-400 text-xs font-light py-4'>
           © {from === y || !from ? y : `${from} - ${y}`} | {BLOG.author}
           <p className='md:float-right'>
@@ -119,6 +120,8 @@ const Footer = ({ fullWidth }) => {
             {t.FOOTER.COPYRIGHT_END}
           </p>
         </div>
+        */}
+        
       </footer>
     </motion.div>
   )
