@@ -30,7 +30,7 @@ const NewsletterHero = ({ blockMap }) => {
             frontMatter={{}}
             subPageTitle={null}
           />
-          <Social />
+          {/* <Social />
           <h2 className='text-xl pt-8 pb-4 font-light text-gray-500 dark:text-day'>
             {t.HERO.NEWSLETTER.SUBSCRIPTION_HEAD}
           </h2>
@@ -90,9 +90,9 @@ const NewsletterHero = ({ blockMap }) => {
                 </span>
               </button>
             )}
-          </div>
+          </div> */}
         </div>
-        <div className='w-1/5'>
+        <div className='w-1/5 ml-4'>
           <NewspaperIcon className='object-cover object-center text-gray-500 dark:text-gray-300' />
         </div>
       </div>
