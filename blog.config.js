@@ -2,7 +2,7 @@ const BLOG = {
   title: '信哲',
   author: '信哲',
   email: 'gao-yiqian@outlook.com',
-  link: 'https://www.shintetu.com',
+  link: 'https://shintetu.com',
   newsletter: 'Weekly',
   description: 'Dream it. Chase it. Code it.',
   lang: 'zh', // ['zh', 'en']
