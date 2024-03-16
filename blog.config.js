@@ -5,7 +5,7 @@ const BLOG = {
   link: 'https://www.shintetu.com',
   newsletter: 'Weekly',
   description: 'Dream it. Chase it. Code it.',
-  lang: 'zh', // ['zh', 'en']
+  lang: 'en-US', // ['zh', 'en']
   timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
@@ -17,7 +17,7 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: true,
-    notes: true,
+    notes: false,
     projects: false,
     contact: false,
     books: true,
@@ -36,7 +36,7 @@ const BLOG = {
     telegram: ''
   },
   seo: {
-    keywords: ['Xinzhe', 'Blog' , '生活'],
+    keywords: ['Xinzhe' , 'Blog' , '生活'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
