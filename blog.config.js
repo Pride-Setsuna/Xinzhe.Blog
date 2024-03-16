@@ -2,10 +2,10 @@ const BLOG = {
   title: '信哲',
   author: '信哲',
   email: 'gao-yiqian@outlook.com',
-  link: 'https://www.shintetu.com',
+  link: 'https://new.shintetu.com',
   newsletter: 'Weekly',
   description: 'Dream it. Chase it. Code it.',
-  lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
+  lang: 'zh', // ['zh', 'en']
   timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
@@ -36,7 +36,7 @@ const BLOG = {
     telegram: ''
   },
   seo: {
-    keywords: ['Notionic', 'Xinzhe', 'Blog' , '生活'],
+    keywords: ['Xinzhe', 'Blog' , '生活'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
