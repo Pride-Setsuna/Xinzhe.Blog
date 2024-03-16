@@ -27,7 +27,7 @@ const BLOG = {
   },
   showWeChatPay: false,
   previewImagesEnabled: true,
-  autoCollapsedNavBar: false, // The automatically collapsed navigation bar
+  autoCollapsedNavBar: false, // The automatically collapsed navigation bar 
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
   defaultCover: '/cover.jpg',
   socialLink: {
