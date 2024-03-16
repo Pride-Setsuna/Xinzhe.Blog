@@ -36,7 +36,7 @@ const BLOG = {
     telegram: ''
   },
   seo: {
-    keywords: ['Xinzhe' , 'Blog' , '生活'],
+    keywords: ['Xinzhe', 'Blog' , '生活'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
@@ -49,7 +49,7 @@ const BLOG = {
   telegramChannelName: '', // The name of your Telegram channel
   craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
   analytics: {
-    provider: 'ga', // Currently we support Google Analytics, Ackee, Umami and Cloudflare Insights, please fill with 'ga' or 'ackee' or 'umami' or 'cf', leave it empty to disable it.
+    provider: '', // Currently we support Google Analytics, Ackee, Umami and Cloudflare Insights, please fill with 'ga' or 'ackee' or 'umami' or 'cf', leave it empty to disable it.
     ackeeConfig: {
       tracker: '', // e.g 'https://ackee.example.com/tracker.js'
       dataAckeeServer: '', // e.g https://ackee.example.com , don't end with a slash
@@ -60,7 +60,7 @@ const BLOG = {
       token: '' // Like '{"token": "xxxxxxxxxxxxxxxxxx"}'
     },
     gaConfig: {
-      measurementId: 'G-511FQNB1S6' // e.g: G-XXXXXXXXXX
+      measurementId: '' // e.g: G-XXXXXXXXXX
     },
     umamiConfig: {
       scriptUrl: '', // The url of your Umami script
