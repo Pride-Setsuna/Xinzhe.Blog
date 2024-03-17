@@ -6,7 +6,7 @@ const BLOG = {
   newsletter: 'Weekly',
   description: 'Dream it. Chase it. Code it.',
   lang: 'zh', // ['zh', 'en'] 
-  timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
+  timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
   lightBackground: '#F6F8FA', // use hex value, don't forget '#' e.g #fffefc
@@ -23,7 +23,7 @@ const BLOG = {
     books: true,
     friends: false,
     music: false,
-    record: true,
+    record: false,
   },
   showWeChatPay: false,
   previewImagesEnabled: true,
@@ -36,7 +36,7 @@ const BLOG = {
     telegram: ''
   },
   seo: {
-    keywords: ['Xinzhe', 'Blog' , '生活'],
+    keywords: ['Xinzhe', 'Blog' , '信哲'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
