@@ -29,7 +29,7 @@ const BLOG = {
   previewImagesEnabled: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar 
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
-  defaultCover: '/cover.jpg',
+  defaultCover: '/cover.png',
   socialLink: {
     twitter: '',
     github: 'https://github.com/Pride-Setsuna',
