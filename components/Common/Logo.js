@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 const Logo = (props) => (
-  <img src="https://ice.frostsky.com/2024/03/15/60a911fa3e77e29c4e4dac00e5abd265.jpeg" width="30" height="30" />
+  <img src="https://ice.frostsky.com/2024/03/17/5e140dc10f7b360d49ee9df6bbc0712c.png" width="30" height="30" />
 )
 
 export default Logo
