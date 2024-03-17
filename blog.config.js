@@ -23,7 +23,7 @@ const BLOG = {
     books: true,
     friends: false,
     music: false,
-    record: false,
+    record: true,
   },
   showWeChatPay: false,
   previewImagesEnabled: true,
