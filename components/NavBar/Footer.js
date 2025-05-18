@@ -4,11 +4,9 @@ import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import {
   UserIcon,
-  UsersIcon,
-  BookOpenIcon,
   MailIcon,
-  PlayIcon,
-  MicrophoneIcon
+  NewspaperIcon,
+  BookOpenIcon
 } from '@heroicons/react/outline'
 
 import Social from '../Common/Social.js'
@@ -40,38 +38,24 @@ const Footer = ({ fullWidth }) => {
     },
     {
       id: 1,
-      name: t.NAV.FRINEDS,
-      to: '/friends',
-      icon: <UsersIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.friends
+      name: t.NAV.NEWSLETTER,
+      to: '/newsletter',
+      icon: <NewspaperIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.newsletter
     },
     {
       id: 2,
-      name: t.NAV.BOOKS,
-      to: '/books',
+      name: t.NAV.BOOK,
+      to: '/book',
       icon: <BookOpenIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.books
+      show: BLOG.pagesShow.book
     },
     {
       id: 3,
-      name: t.NAV.MUSIC,
-      to: '/music',
-      icon: <PlayIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.music
-    },
-    {
-      id: 4,
-      name: t.NAV.RECORD,
-      to: '/record',
-      icon: <MicrophoneIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.record
-    },
-    {
-      id: 5,
       name: t.NAV.CONTACT,
       to: '/contact',
       icon: <MailIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.contact
+      show: false
     },
   ]
 

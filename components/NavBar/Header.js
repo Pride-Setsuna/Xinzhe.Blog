@@ -5,7 +5,6 @@ import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import {
   HomeIcon,
-  NewspaperIcon,
   CollectionIcon,
   SparklesIcon,
   SearchIcon,
@@ -17,11 +16,10 @@ import LangSwitcher from './LangSwitcher.js'
 import Logo from '@/components/Common/Logo'
 import { motion } from 'framer-motion'
 
-const NavBar = () => {
+const NavBar = ({ showMenu, setShowMenu, showLangMenu, setShowLangMenu }) => {
   const router = useRouter()
   const { locale } = useRouter()
   const t = lang[locale]
-  const [showMenu, setShowMenu] = useState(false)
 
   let activeMenu = ''
   if (router.query.slug) {
@@ -40,33 +38,56 @@ const NavBar = () => {
     },
     {
       id: 1,
-      name: t.NAV.NEWSLETTER,
-      to: '/newsletter',
-      icon: <NewspaperIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.newsletter
-    },
-    {
-      id: 2,
       name: t.NAV.NOTES,
       to: '/notes',
       icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.notes
     },
     {
-      id: 3,
+      id: 2,
       name: t.NAV.PROJECTS,
       to: '/projects',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
     {
-      id: 4,
+      id: 3,
       name: t.NAV.SEARCH,
       to: '/search',
       icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     }
   ]
+
+  const navMenuRef = useRef(null);
+
+  // 点击空白处关闭菜单栏
+  useEffect(() => {
+    if (!showMenu) return;
+    const handleClickOutside = (event) => {
+      if (navMenuRef.current && !navMenuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu, setShowMenu]);
+
+  // 滚动时自动关闭菜单栏和语言切换器
+  useEffect(() => {
+    if (!showMenu && !showLangMenu) return;
+    const handleScroll = () => {
+      setShowMenu(false);
+      setShowLangMenu(false);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [showMenu, showLangMenu, setShowMenu, setShowLangMenu]);
+
   return (
     <motion.div className='flex'>
       {/* Desktop Menu */}
@@ -91,16 +112,21 @@ const NavBar = () => {
         )}
       </ul>
 
-      <div className='nav-func-btn block'>
+      <div className='nav-func-btn flex items-center'>
         <ThemeSwitcher />
-        <LangSwitcher />
+        <LangSwitcher showLangMenu={showLangMenu} setShowLangMenu={setShowLangMenu} showMenu={showMenu} setShowMenu={setShowMenu} />
       </div>
 
       {/* Mobile Phone Menu */}
-      <div className='md:hidden mr-2 block '>
+      <div className='md:hidden mr-2 block ' ref={navMenuRef}>
         <button
           type='button' aria-label='Menu'
-          onClick={() => setShowMenu((showMenu) => !showMenu)}
+          onClick={() => {
+            setShowMenu((prev) => {
+              if (!prev) setShowLangMenu(false)
+              return !prev
+            })
+          }}
           className='hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block p-2 -mr-3 md:pb-3'
         >
           <MenuIcon className='inline-block mb-1 h-5 w-5' />
@@ -134,7 +160,8 @@ const NavBar = () => {
 }
 
 const Header = ({ navBarTitle, fullWidth }) => {
-  const [showTitle, setShowTitle] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
+  const [showLangMenu, setShowLangMenu] = useState(false)
   const useSticky = !BLOG.autoCollapsedNavBar
   const navRef = useRef(/** @type {HTMLDivElement} */ undefined)
   const sentinelRef = useRef(/** @type {HTMLDivElement} */ undefined)
@@ -145,23 +172,36 @@ const Header = ({ navBarTitle, fullWidth }) => {
       navRef.current?.classList.add('remove-sticky')
     }
   }, [useSticky])
+  const router = useRouter()
 
   useEffect(() => {
     const sentinelEl = sentinelRef.current
     const observer = new window.IntersectionObserver(handler)
     observer.observe(sentinelEl)
 
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        setShowTitle(true)
-      } else {
-        setShowTitle(false)
+    // 只在桌面端自动展开菜单栏
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) { // md断点
+        if (window.pageYOffset > 400) {
+          setShowMenu(true)
+        } else {
+          setShowMenu(false)
+        }
       }
-    })
+    }
+    window.addEventListener('scroll', handleScroll)
+
+    const handleRouteChange = () => {
+      setShowMenu(false)
+      setShowLangMenu(false)
+    }
+    router.events.on('routeChangeStart', handleRouteChange)
     return () => {
       sentinelEl && observer.unobserve(sentinelEl)
+      window.removeEventListener('scroll', handleScroll)
+      router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [handler, sentinelRef])
+  }, [handler, sentinelRef, router])
   return (
     <>
       <div className='observer-element h-4 md:h-12' ref={sentinelRef}></div>
@@ -181,7 +221,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
           {navBarTitle ? (
             <p
               className={`ml-2 font-medium ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
+                !showMenu ? 'hidden' : 'hidden xl:block'
               }`}
             >
               {navBarTitle}
@@ -189,7 +229,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
           ) : (
             <p
               className={`ml-2 font-medium ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
+                !showMenu ? 'hidden' : 'hidden xl:block'
               }`}
             >
               {BLOG.title},{' '}
@@ -197,7 +237,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
             </p>
           )}
         </div>
-        <NavBar />
+        <NavBar showMenu={showMenu} setShowMenu={setShowMenu} showLangMenu={showLangMenu} setShowLangMenu={setShowLangMenu} />
       </div>
     </>
   )

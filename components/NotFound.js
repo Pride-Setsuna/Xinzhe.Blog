@@ -1,6 +1,7 @@
 import { lang } from '@/lib/lang'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 import Logo from '@/components/Common/Logo'
 
@@ -12,7 +13,16 @@ const Page404 = ({ statusCode }) => {
       <div className='max-w-screen-2xl px-4 md:px-8 mx-auto'>
         <div className='flex flex-col items-center'>
           <div className='inline-flex items-center gap-2.5 mb-8'>
-            <Logo className='h-6 hover:text-blue-500 dark:hover:text-blue-500 fill-current' />
+            <Image
+              src='/図3.png'
+              alt='Not Found'
+              width={180}
+              height={180}
+              style={{ objectFit: 'contain', userSelect: 'none' }}
+              draggable={false}
+              onContextMenu={e => e.preventDefault()}
+              onTouchStart={e => e.preventDefault()}
+            />
           </div>
 
           <p className='text-sm md:text-base font-semibold uppercase mb-4'>
@@ -28,6 +38,13 @@ const Page404 = ({ statusCode }) => {
             {t.ERROR.HELP_TEXT}
           </p>
 
+          <Link
+            href='/contact'
+            scroll={false}
+            className='inline-block bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-sm md:text-base font-semibold text-center rounded-lg outline-none px-8 py-3 mb-4'
+          >
+            {t.LAYOUT.NOTICE_BUTTON}
+          </Link>
           <Link
             href='/'
             scroll={false}

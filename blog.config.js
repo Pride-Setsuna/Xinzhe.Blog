@@ -4,6 +4,9 @@ const BLOG = {
   email: 'gao-yiqian@outlook.com',
   link: 'https://www.shintetu.com',
   newsletter: 'Weekly',
+  notes: 'Notes',
+  projects: 'Project',
+  book: 'Book',
   description: 'Dream it. Chase it. Code it.',
   lang: 'zh', // ['zh', 'en'] 
   timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
@@ -17,15 +20,10 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: true,
-    notes: false,
-    projects: false,
-    contact: false,
-    books: true,
-    friends: false,
-    music: false,
-    record: false,
+    notes: true,
+    projects: true,
+    book: true,
   },
-  showWeChatPay: false,
   previewImagesEnabled: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar 
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
@@ -47,7 +45,6 @@ const BLOG = {
   telegramChatId: '7087670492', // The chat id of your Telegram bot
   telegramChannelUrl: '', // The link of your Telegram channel
   telegramChannelName: '', // The name of your Telegram channel
-  craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
   analytics: {
     provider: '', // Currently we support Google Analytics, Ackee, Umami and Cloudflare Insights, please fill with 'ga' or 'ackee' or 'umami' or 'cf', leave it empty to disable it.
     ackeeConfig: {

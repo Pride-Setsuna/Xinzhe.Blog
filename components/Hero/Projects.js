@@ -4,11 +4,10 @@ import Social from '../Common/Social.js'
 import { useState } from 'react'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
-import { NewspaperIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
+import { NewspaperIcon, ClipboardCheckIcon, SparklesIcon } from '@heroicons/react/outline'
 import NotionRenderer from '@/components/Post/NotionRenderer'
-import { CollectionIcon } from '@heroicons/react/outline'
 
-const NotesHero = ({ blockMap }) => {
+const ProjectsHero = ({ blockMap }) => {
   const [showCopied, setShowCopied] = useState(false)
   const { locale } = useRouter()
   const t = lang[locale]
@@ -94,11 +93,11 @@ const NotesHero = ({ blockMap }) => {
           </div> */}
         </div>
         <div className='w-1/5 ml-4'>
-          <CollectionIcon className='object-cover object-center text-gray-500 dark:text-gray-300' />
+          <SparklesIcon className='object-cover object-center text-gray-500 dark:text-gray-300' />
         </div>
       </div>
     </>
   )
 }
 
-export default NotesHero
+export default ProjectsHero
