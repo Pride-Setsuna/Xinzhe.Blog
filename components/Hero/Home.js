@@ -4,7 +4,7 @@ import Avatar from './NotionAvatar.js'
 import Social from '../Common/Social.js'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   MailIcon,
   RssIcon,
@@ -16,6 +16,19 @@ const Hero = ({ blockMap }) => {
   const [showCopied, setShowCopied] = useState(false)
   const { locale } = useRouter()
   const t = lang[locale]
+  const [showText, setShowText] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowText(false)
+      } else {
+        setShowText(true)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const clickCopy = async () => {
     setShowCopied(true)
@@ -23,47 +36,6 @@ const Hero = ({ blockMap }) => {
     setTimeout(() => {
       setShowCopied(false)
     }, 1000)
-  }
-
-  // 如果没有获取到对应语言的blockMap，显示一个静态的多语言欢迎语
-  const renderStaticContent = () => {
-    if (locale === 'en') {
-      return (
-        <div>
-          <h1 className="text-3xl font-bold mb-2">Hello, I'm {BLOG.author}. Welcome to my blog!</h1>
-          <p className="mb-4">Here you will find:</p>
-          <ul className="list-disc ml-5 mb-4">
-            <li className="mb-2">A fresh and interesting personal weekly newsletter</li>
-            <li className="mb-2">Notes from my personal studies and learnings</li>
-            <li className="mb-2">Daily thoughts and musings</li>
-          </ul>
-        </div>
-      )
-    } else if (locale === 'ja') {
-      return (
-        <div>
-          <h1 className="text-3xl font-bold mb-2">こんにちは、{BLOG.author}です。ブログへようこそ！</h1>
-          <p className="mb-4">ここでは以下のものを見つけることができます：</p>
-          <ul className="list-disc ml-5 mb-4">
-            <li className="mb-2">新鮮で面白い個人的な週刊ニュースレター</li>
-            <li className="mb-2">個人的な学習からのノート</li>
-            <li className="mb-2">日々の考えやつぶやき</li>
-          </ul>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <h1 className="text-3xl font-bold mb-2">你好，我是{BLOG.author}。欢迎来到我的博客！</h1>
-          <p className="mb-4">这里有：</p>
-          <ul className="list-disc ml-5 mb-4">
-            <li className="mb-2">一份新鲜有趣的个人周刊</li>
-            <li className="mb-2">一些个人学习归纳的笔记</li>
-            <li className="mb-2">以及日常的碎碎念</li>
-          </ul>
-        </div>
-      )
-    }
   }
 
   return (
@@ -77,9 +49,7 @@ const Hero = ({ blockMap }) => {
               frontMatter={{}}
               subPageTitle={null}
             />
-          ) : (
-            renderStaticContent()
-          )}
+          ) : null}
           <Social />
           <div className='flex flex-col sm:flex-row sm:justify-center gap-4 mt-6'>
             {/*注释掉联系按钮*/}
