@@ -2,7 +2,7 @@ const BLOG = {
   title: 'Xinzhe',
   author: 'Xinzhe',
   email: 'gao-yiqian@outlook.com',
-  link: 'https://www.xinzhe.dev',
+  link: 'https://xinzhe.dev',
   newsletter: 'Weekly',
   notes: 'Notes',
   projects: 'Project',
