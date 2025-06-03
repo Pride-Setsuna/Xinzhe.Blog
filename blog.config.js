@@ -1,14 +1,14 @@
 const BLOG = {
-  title: '信哲',
-  author: '信哲',
+  title: 'Xinzhe',
+  author: 'Xinzhe',
   email: 'gao-yiqian@outlook.com',
-  link: 'https://www.shintetu.com',
+  link: 'https://www.xinzhe.dev',
   newsletter: 'Weekly',
   notes: 'Notes',
   projects: 'Project',
   book: 'Book',
   description: 'Dream it. Chase it. Code it.',
-  lang: 'zh', // ['zh', 'en'] 
+  lang: 'en', // ['zh', 'en'] 
   timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
@@ -30,7 +30,7 @@ const BLOG = {
   defaultCover: '/cover.png',
   socialLink: {
     twitter: '',
-    github: 'https://github.com/Pride-Setsuna',
+    github: 'https://github.com/XinzheGao',
     telegram: ''
   },
   seo: {
