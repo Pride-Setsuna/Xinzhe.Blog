@@ -9,14 +9,12 @@ const LangSwitcher = ({ showLangMenu, setShowLangMenu, showMenu, setShowMenu }) 
   const { locale, asPath, pathname, query } = router
   const menuRef = useRef(null)
 
-  // 语言配置
   const languages = [
     { code: 'zh', name: '中文' },
     { code: 'en', name: 'English' },
     { code: 'ja', name: '日本語' }
   ]
 
-  // 点击外部关闭菜单
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -29,7 +27,6 @@ const LangSwitcher = ({ showLangMenu, setShowLangMenu, showMenu, setShowMenu }) 
     }
   }, [menuRef, setShowLangMenu])
 
-  // 滚动时自动关闭语言切换器
   useEffect(() => {
     if (!showLangMenu) return;
     const handleScroll = () => {
@@ -60,9 +57,7 @@ const LangSwitcher = ({ showLangMenu, setShowLangMenu, showMenu, setShowMenu }) 
         <div className="absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-10">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="language-menu">
             {languages.map((lang) => {
-              // 只在文章详情页做特殊处理
               if (query.slug) {
-                // 文章详情页
                 return (
                   <div
                     key={lang.code}
@@ -72,28 +67,19 @@ const LangSwitcher = ({ showLangMenu, setShowLangMenu, showMenu, setShowMenu }) 
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                     role="menuitem"
-                    onClick={async () => {
+                    onClick={() => {
                       setShowLangMenu(false)
-                      // 统一 slug 组名（去除 -en/-ja 后缀）
                       let baseSlug = query.slug.replace(/(-en|-ja)$/,'')
                       let targetSlug = baseSlug
                       if (lang.code === 'en') targetSlug = `${baseSlug}-en`
                       else if (lang.code === 'ja') targetSlug = `${baseSlug}-ja`
-                      // 检查是否有对应slug的文章
-                      const res = await fetch(`/api/check-slug?slug=${targetSlug}`)
-                      const data = await res.json()
-                      if (data.found) {
-                        router.push(`/${targetSlug}`, `/${targetSlug}`, { locale: lang.code })
-                      } else {
-                        router.push('/404')
-                      }
+                      router.push(`/${targetSlug}`, `/${targetSlug}`, { locale: lang.code })
                     }}
                   >
                     {lang.name}
                   </div>
                 )
               } else {
-                // 其它页面保持原有逻辑
                 return (
                   <Link
                     key={lang.code}
