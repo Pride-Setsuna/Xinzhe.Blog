@@ -1,6 +1,3 @@
----
-
-````markdown
 # 📝 Xinzhe.Blog
 
 使用 Notion + Next.js 构建的自部署博客系统，支持 SEO、社交分享、高速加载和自动部署。内容直接来自 Notion 页面，专注于编程、AI、前端开发等技术分享。
@@ -141,5 +138,3 @@ npm run dev
 ## 📝 License
 
 [MIT](LICENSE) License © 2025-present 高信哲
-
-```
