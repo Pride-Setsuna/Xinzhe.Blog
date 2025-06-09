@@ -102,7 +102,9 @@ const Hero = ({ blockMap }) => {
           </div>
         </div>
         <div className='w-2/5 flex items-start justify-center h-full'>
-          <Avatar className='text-gray-600 dark:text-gray-300' />
+          <div className='mt-[-40px]'>
+            <Avatar className='text-gray-600 dark:text-gray-300' />
+          </div>
         </div>
       </div>
     </>
