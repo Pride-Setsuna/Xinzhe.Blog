@@ -40,8 +40,8 @@ const Hero = ({ blockMap }) => {
 
   return (
     <>
-      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-center'>
-        <div className='flex flex-col md:w-3/5 md:items-start mb-6 md:mb-0 text-left'>
+      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-end'>
+        <div className='flex flex-col md:w-3/5 md:items-start mb-0 text-left'>
           {blockMap ? (
             <NotionRenderer
               className='md:ml-0'
