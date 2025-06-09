@@ -36,7 +36,6 @@ Xinzhe.Blog 是我的个人技术博客，使用 Notion 作为内容管理系统
 ## 使用说明
 
 1. 克隆仓库：
-
 ```bash
 git clone https://github.com/XinzheGao/Xinzhe.Blog.git
 cd Xinzhe.Blog
