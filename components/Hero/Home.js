@@ -41,7 +41,7 @@ const Hero = ({ blockMap }) => {
   return (
     <>
       <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-end'>
-        <div className='flex flex-col justify-end md:w-3/5 md:items-start text-left'>
+        <div className='flex flex-col justify-end h-full md:w-3/5 md:items-start text-left'>
           {blockMap ? (
             <NotionRenderer
               className='md:ml-0'
@@ -101,7 +101,7 @@ const Hero = ({ blockMap }) => {
             */}
           </div>
         </div>
-        <div className='w-2/5 flex self-end'>
+        <div className='w-2/5 flex self-end h-full'>
           <Avatar className='text-gray-600 dark:text-gray-300' />
         </div>
       </div>
