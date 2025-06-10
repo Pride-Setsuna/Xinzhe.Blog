@@ -40,7 +40,7 @@ const Hero = ({ blockMap }) => {
 
   return (
     <>
-      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-end'>
+      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-center'>
         <div className='flex flex-col md:w-3/5 md:items-start mb-6 md:mb-0 text-left'>
           {blockMap ? (
             <NotionRenderer
@@ -52,7 +52,7 @@ const Hero = ({ blockMap }) => {
           ) : null}
           <Social />
           <div className='flex flex-col sm:flex-row sm:justify-center gap-4 mt-6'>
-            {/* 注释掉联系按钮 */}
+            {/*注释掉联系按钮*/}
             {/*
             <Link passHref href='/contact' scroll={false}>
               <button className='w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'>
@@ -66,8 +66,8 @@ const Hero = ({ blockMap }) => {
               </button>
             </Link>
             */}
-
-            {/* 注释掉RSS订阅按钮 */}
+            
+            {/*注释掉RSS订阅按钮*/}
             {/*
             {showCopied ? (
               <button
@@ -101,7 +101,7 @@ const Hero = ({ blockMap }) => {
             */}
           </div>
         </div>
-        <div className='w-2/5 flex justify-end items-end'>
+        <div className='w-2/5 flex items-end'>
           <Avatar className='text-gray-600 dark:text-gray-300' />
         </div>
       </div>
